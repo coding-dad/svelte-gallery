@@ -21,6 +21,6 @@
 		"start": "npm-run-all build serve",
 		"serve": "sirv public --port \"$PORT\"",
 		"start:dev": "sirv public --single --dev",
-		"deploy": "gh-pages -d public"
+		"deploy": "npm run build && gh-pages -d public"
 	}
 }
