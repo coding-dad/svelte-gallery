@@ -1,7 +1,6 @@
 # svelte build files
 public/bundle*
-public/bundle.css.map
-public/bundlie.js.map
+
 
 # Logs
 logs
