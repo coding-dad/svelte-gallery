@@ -1,5 +1,5 @@
 <script>
-  // Importing livecycle  methods
+  // Importing livecycle  methods 
   import { onMount } from "svelte";
 
   // Importing our components
