@@ -1,14 +1,31 @@
 <script>
+  // Import the wait helper classes
+  import { wait } from "../Helpers.js";
+
   // Importing our components
   import Loader from "./Loader.svelte";
   import GalleryNavButton from "./GalleryNavButton.svelte";
   import GalleryControls from "./GalleryControls.svelte";
 
   // Definition of the component's properties
-  export let images, height, maxWidth;
+  export let images,
+    height = "",
+    maxWidth = "",
+    autoRun = false,
+    timer = 2000;
 
   // Here we prepare the index for the first image.
   let currentImageIndex = 0; // the displaying itself is controlled by 'imageCount'
+  let keepAutorunRunning = false;
+
+  // This reactive if is called, wehenever the autoRun property changed
+  // Then it sets the 'keepAutorunRunning' and starts doAutorun() if needed
+  $: if (autoRun) {
+    keepAutorunRunning = true;
+    doAutorun();
+  } else {
+    keepAutorunRunning = false;
+  }
 
   // Calculating the image count via a reactive statement
   $: imageCount =
@@ -45,6 +62,26 @@
    */
   const navigateToIndex = imageIndex => {
     currentImageIndex = imageIndex.detail;
+  };
+
+  /**
+   * This method waits an amout of ms and then sets the current image index +1
+   * It is called as long as 'keepAutoRunning' var is true
+   * Start/stop is triggert by the reactive statement '$: galleryStyles'
+   */
+  const doAutorun = async () => {
+    await wait(timer); // Just wait
+
+    if (keepAutorunRunning) {
+      // Checking here allows us to stop earlier, if autorun was stopped
+      if (currentImageIndex < imageCount - 1) {
+        currentImageIndex += 1; // goto next image
+      } else {
+        currentImageIndex = 0; // jump back to first image
+      }
+
+      doAutorun(timer);
+    }
   };
 </script>
 

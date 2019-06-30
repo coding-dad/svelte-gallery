@@ -12,6 +12,9 @@
   let galleryHeight = "460px";
   let maxWith = "940px";
 
+  let enableAutorun = false;
+  let timer = 2000;
+
   /**
    * Init the first combination on page load
    */
@@ -44,9 +47,20 @@
 </style>
 
 <div class="container">
-  <h1>Gallery example</h1>
+  <h1>Svelte Gallery example</h1>
+  <div>
+    <label>
+      <input class="autorun" type="checkbox" bind:checked={enableAutorun} />
+      Enable Autorun
+    </label>
+  </div>
 
   <div class="gallery">
-    <Gallery {images} height={galleryHeight} maxWidth={maxWith} />
+    <Gallery
+      {images}
+      height={galleryHeight}
+      maxWidth={maxWith}
+      autoRun={enableAutorun}
+      {timer} />
   </div>
 </div>
