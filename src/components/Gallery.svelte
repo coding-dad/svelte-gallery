@@ -5,7 +5,7 @@
   import GalleryControls from "./GalleryControls.svelte";
 
   // Definition of the component's properties
-  export let images, height;
+  export let images, height, maxWidth;
 
   // Here we prepare the index for the first image.
   let currentImageIndex = 0; // the displaying itself is controlled by 'imageCount'
@@ -19,12 +19,13 @@
   // Calculating styles depending on gallery height and current image index
   $: galleryStyles = () => {
     const galleryHeight = height || "400px";
+    const galleryMaxWidth = maxWidth ? ` max-width: ${maxWidth};` : "";
     const imgUrl =
       imageCount > -1
         ? ` background-image: url(${images[currentImageIndex]});`
         : "";
 
-    return `height: ${galleryHeight};${imgUrl}`;
+    return `height: ${galleryHeight};${galleryMaxWidth} ${imgUrl}`;
   };
 
   /**
@@ -53,6 +54,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    margin-left: auto;
+    margin-right: auto;
 
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     border-radius: 0.25rem;

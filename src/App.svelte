@@ -1,5 +1,5 @@
 <script>
-  // Importing livecycle  methods 
+  // Importing livecycle  methods
   import { onMount } from "svelte";
 
   // Importing our components
@@ -9,7 +9,8 @@
   import { images } from "./Helpers.js";
 
   // Local vars
-  let galleryHeight = "600px";
+  let galleryHeight = "460px";
+  let maxWith = "940px";
 
   /**
    * Init the first combination on page load
@@ -46,6 +47,6 @@
   <h1>Gallery example</h1>
 
   <div class="gallery">
-    <Gallery {images} height={galleryHeight} />
+    <Gallery {images} height={galleryHeight} maxWidth={maxWith} />
   </div>
 </div>
