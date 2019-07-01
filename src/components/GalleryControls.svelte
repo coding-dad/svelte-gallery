@@ -31,6 +31,9 @@
 
     background-color: rgba(0, 0, 0, 0.4);
     color: white;
+
+    border-bottom-left-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
   }
 
   ul {
