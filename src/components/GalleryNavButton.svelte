@@ -33,7 +33,7 @@
     justify-content: center;
     align-items: center;
 
-    border-radius: 50%;
+    border-radius: 0.25rem;
     padding: 1.2rem;
     cursor: pointer;
     user-select: none;
