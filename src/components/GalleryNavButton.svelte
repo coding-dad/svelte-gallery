@@ -34,7 +34,7 @@
     align-items: center;
 
     border-radius: 0.25rem;
-    padding: 1.2rem;
+    padding: 0.6rem;
     cursor: pointer;
     user-select: none;
   }
@@ -49,7 +49,7 @@
 
   .btnContainer:hover {
     background-color: rgba(0, 0, 0, 0.1);
-    padding: 1.2rem;
+    /* padding: 1.2rem; */
   }
 
   .arrow {
